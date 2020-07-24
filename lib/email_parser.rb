@@ -9,7 +9,6 @@ class EmailAddressParser
 
   def initialize(csv)
     @csv = csv
-    self.class.all << email_addresses.parse
   end
 
   def self.all
