@@ -5,17 +5,16 @@
 class EmailAddressParser
 
   attr_accessor :name :csv
-  @@email = []
 
   def initialize(csv)
     @csv = csv
   end
 
-  def self.all
-    @@email
-  end
 
   def parse
-    split(', ')
+    csv.map do |email|
+      email.split(", ")
+    end
+    email.uniq!
   end
 end
