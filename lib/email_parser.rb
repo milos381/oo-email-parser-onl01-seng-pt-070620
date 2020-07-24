@@ -4,15 +4,21 @@
 # or whitespace (' ').
 class EmailAddressParser
 
+  @@emails = []
+
   attr_accessor :name, :csv
 
   def initialize(csv)
     @csv = csv
+    self.class.all << csv
   end
 
+  def self.all
+    @@emails
+  end
 
   def parse
-    csv.map do |email|
+    self.all.map do |email|
       email.split(", ")
     end
     email.uniq!
